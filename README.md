@@ -35,6 +35,15 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+## Cheat Sheet for Dockerfile
+1. Choose base environment (Node)
+2. Set working directory
+3. Copy dependency files
+4. Install dependencies
+5. Copy source code
+6. Build app
+7. Run app
+
 ## Build and Run Docker Image
 Inside your project:
 ```bash
@@ -68,4 +77,42 @@ docker stop <container_name_or_id>
 Delete container or image
 ```bash
 docker rm -a <container_id_or_name>
+```
+
+Building an image with a tag
+```bash
+docker build -t my-app:v1 .
+```
+
+Adding a tag to an existing image
+```bash
+my-app:v1
+```
+
+Follow tags are excluded from immutability in ECR
+```bash
+latest 
+dev 
+prod
+```
+
+## Check AWS CLI Configuration is correct
+```bash
+aws configure list
+aws sts get-caller-identity
+aws s3 ls   # if you have S3 access
+```
+
+## Terraform resources
+```bash
+aws_instance
+aws_vpc
+aws_subnet
+aws_security_group
+aws_internet_gateway
+aws_route_table
+aws_iam_role
+aws_s3_bucket
+aws_ecr_repository
+aws_eks_cluster
 ```

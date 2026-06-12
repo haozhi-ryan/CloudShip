@@ -6,7 +6,7 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 
 # Install dependencies
-COPY package*.json ./
+COPY package.json package-lock.json .
 RUN npm install
 
 # Copy source code
@@ -25,13 +25,14 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Copy standalone output from build stage
-COPY --from=builder /app/.next/standalone ./
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 nextjs
+
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Expose Next.js port
+USER nextjs
+
 EXPOSE 3000
-
-# Start the server
 CMD ["node", "server.js"]
