@@ -1,0 +1,91 @@
+{
+    "tasks": [
+        {
+            "attachments": [
+                {
+                    "id": "d26cd399-e0c8-43c6-936a-1e25c28d7f02",
+                    "type": "ElasticNetworkInterface",
+                    "status": "ATTACHED",
+                    "details": [
+                        {
+                            "name": "subnetId",
+                            "value": "subnet-0c270967c12faa8d3"
+                        },
+                        {
+                            "name": "networkInterfaceId",
+                            "value": "eni-08a9212e34a0455fe"
+                        },
+                        {
+                            "name": "macAddress",
+                            "value": "02:1d:03:2b:f8:95"
+                        },
+                        {
+                            "name": "privateDnsName",
+                            "value": "ip-10-0-1-88.ap-southeast-2.compute.internal"
+                        },
+                        {
+                            "name": "privateIPv4Address",
+                            "value": "10.0.1.88"
+                        }
+                    ]
+                }
+            ],
+            "attributes": [
+                {
+                    "name": "ecs.cpu-architecture",
+                    "value": "x86_64"
+                }
+            ],
+            "availabilityZone": "ap-southeast-2a",
+            "clusterArn": "arn:aws:ecs:ap-southeast-2:906548967283:cluster/cloudship-cluster",
+            "containers": [
+                {
+                    "containerArn": "arn:aws:ecs:ap-southeast-2:906548967283:container/cloudship-cluster/c9931095149c43ba900e608fc06ef790/edb06dcf-4159-424a-9e0f-61a8b4ceca81",
+                    "taskArn": "arn:aws:ecs:ap-southeast-2:906548967283:task/cloudship-cluster/c9931095149c43ba900e608fc06ef790",
+                    "name": "cloudship-app",
+                    "image": "906548967283.dkr.ecr.ap-southeast-2.amazonaws.com/cloudship-repository:latest",
+                    "lastStatus": "PENDING",
+                    "networkInterfaces": [
+                        {
+                            "attachmentId": "d26cd399-e0c8-43c6-936a-1e25c28d7f02",
+                            "privateIpv4Address": "10.0.1.88"
+                        }
+                    ],
+                    "healthStatus": "UNKNOWN",
+                    "cpu": "0"
+                }
+            ],
+            "cpu": "256",
+            "createdAt": "2026-06-20T14:44:23.310000+10:00",
+            "desiredStatus": "RUNNING",
+            "enableExecuteCommand": false,
+            "group": "service:cloudship-app-service",
+            "healthStatus": "UNKNOWN",
+            "lastStatus": "PENDING",
+            "launchType": "FARGATE",
+            "memory": "512",
+            "overrides": {
+                "containerOverrides": [
+                    {
+                        "name": "cloudship-app"
+                    }
+                ],
+                "inferenceAcceleratorOverrides": []
+            },
+            "platformVersion": "1.4.0",
+            "platformFamily": "Linux",
+            "startedBy": "ecs-svc/0681603448791083219",
+            "tags": [],
+            "taskArn": "arn:aws:ecs:ap-southeast-2:906548967283:task/cloudship-cluster/c9931095149c43ba900e608fc06ef790",
+            "taskDefinitionArn": "arn:aws:ecs:ap-southeast-2:906548967283:task-definition/cloudship-app:1",
+            "version": 2,
+            "ephemeralStorage": {
+                "sizeInGiB": 20
+            },
+            "fargateEphemeralStorage": {
+                "sizeInGiB": 20
+            }
+        }
+    ],
+    "failures": []
+}

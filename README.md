@@ -103,16 +103,7 @@ aws sts get-caller-identity
 aws s3 ls   # if you have S3 access
 ```
 
-## Terraform resources
+### List every ECR repo in your account for that region
 ```bash
-aws_instance
-aws_vpc
-aws_subnet
-aws_security_group
-aws_internet_gateway
-aws_route_table
-aws_iam_role
-aws_s3_bucket
-aws_ecr_repository
-aws_eks_cluster
+aws ecr describe-repositories --region ap-southeast-2
 ```
