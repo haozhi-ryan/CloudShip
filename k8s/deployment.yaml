@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudship-deployment
+  labels:
+    app: cloudship
+spec:
+  replicas: 2                    # how many pod copies we want running
+  selector:
+    matchLabels:
+      app: cloudship             # this Deployment manages any pod with this label
+  template:                      # the pod "template" — what each replica looks like
+    metadata:
+      labels:
+        app: cloudship           # must match selector.matchLabels above
+    spec:
+      containers:
+        - name: cloudship-app
+          image: cloudship-app:local
+          imagePullPolicy: Never  # use the image already loaded into minikube, don't try to pull from a registry
+          ports:
+            - containerPort: 3000 # the port your Next.js app listens on inside the container
