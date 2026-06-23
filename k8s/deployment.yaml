@@ -5,7 +5,7 @@ metadata:
   labels:
     app: cloudship
 spec:
-  replicas: 2                    # how many pod copies we want running
+  replicas: 4                    # how many pod copies we want running
   selector:
     matchLabels:
       app: cloudship             # this Deployment manages any pod with this label
